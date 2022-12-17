@@ -2,32 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet"> 
-    <title>Whats the hex?</title>
-</head>
+    <title>What the hex?</title>
+</head> 
 
 <body>
     <div class="container">
-        <p class="hex"> #FFFFFF</p>
+        <p id="head"></p>
   
         <ul class="colors">
-            <li class="prefab"></li>
-            <li class="prefab"></li>
-            <li class="prefab"></li> 
-            <li class="prefab"></li> 
-            <li class="prefab"></li>
+            <p class="" id="selector">SELECT DIFFICULTY</p>
+            <li class="prefab hide" id="color1"></li>
+            <li class="prefab hide" id="color2"></li>
+            <li class="prefab hide" id="color3"></li>
+            <li class="prefab hide" id="color4"></li>
+            <li class="prefab hide" id="color5"></li>
+            <li class="prefab hide" id="color6"></li>
+            <li class="prefab hide" id="color7"></li>
         </ul>
         <p class="guess">Guess the color</p>
 
-        <div class="diffs">Difficulty: 
-            <button class="button" id="easy">Easy</button>
-            <button class="button" id="medium">Medium</button>
-            <button class="button" id="hard">Hard</button>
+        <div class="diffs">
+            <p class="diftext difficulty">Difficulty: </p> 
+            <button class="button difficulty" id="easy">Easy</button>
+            <button class="button difficulty" id="medium">Medium</button>
+            <button class="button difficulty" id="hard">Hard</button>
         </div>
     </div>
-</body></html>
+
+    <script src="main.js"></script>
+</body>
 </html>
