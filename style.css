@@ -45,7 +45,7 @@ li{
     font-weight: bolder;    
 }
 
-.diffs{
+#diffsContainer{
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -75,4 +75,7 @@ li{
 #hard{
     background-color: rgb(222, 34, 34);
 }
-
+#newGame{
+    background-color: rgb(32, 167, 142);
+    margin-left: 0px;
+}

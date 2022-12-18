@@ -1,15 +1,17 @@
 let header= document.getElementById("head");
-let guess = document.querySelectorAll(".guess");
+let guess = document.getElementById("guessText");
 
-const easy = document.getElementById("easy");
-const medium = document.getElementById("medium");
-const hard = document.getElementById("hard");
+let diffsContainer = document.getElementById("diffsContainer");
+let easy = document.getElementById("easy");
+let medium = document.getElementById("medium");
+let hard = document.getElementById("hard");
+let difText = document.getElementById("difText");
+let newGame = document.getElementById("newGame");
 
 let selector = document.getElementById("selector");
 
 let prefab = document.querySelectorAll(".prefab");
 
-let diffs = document.getElementsByClassName("diffs");
 
 let color1 = document.getElementById("color1");
 let color2 = document.getElementById("color2");
@@ -209,13 +211,30 @@ prefab.forEach(element => {
     element.addEventListener("click", function(){
         let backgroundColor = RGBtoHex(element.style.backgroundColor);
         if(backgroundColor === header.innerHTML){
-            header.innerHTML = "Correct!";
-            header.style.color = "green";
-            element.style.backgroundColor = "green";
+            guess.innerHTML = "Correct!";
+            guess.style.color = element.style.backgroundColor;
+            header.style.color = element.style.backgroundColor;
 
+            difText.classList.add("hide");
+            easy.classList.add("hide");
+            medium.classList.add("hide");
+            hard.classList.add("hide");
+            newGame.classList.remove("hide");
+
+            newGame.addEventListener("click", function(){
+                location.reload();
+            });
+            prefab.forEach(element => {
+                if(RGBtoHex(element.style.backgroundColor) !== header.innerHTML){
+                    element.classList.add("hide");
+                }
+            });
+
+            
         } else {
             element.classList.add("hide");
             guess.innerHTML = "Guess Again, that color was " + backgroundColor;
+            guess.style.color = backgroundColor;
         }
     });
 });
