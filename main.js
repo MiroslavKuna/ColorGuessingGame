@@ -210,32 +210,33 @@ hard.addEventListener("click", function(){
 prefab.forEach(element => {
     element.addEventListener("click", function(){
         let backgroundColor = RGBtoHex(element.style.backgroundColor);
-        if(backgroundColor === header.innerHTML){
-            guess.innerHTML = "Correct!";
-            guess.style.color = element.style.backgroundColor;
-            header.style.color = element.style.backgroundColor;
 
-            difText.classList.add("hide");
-            easy.classList.add("hide");
-            medium.classList.add("hide");
-            hard.classList.add("hide");
-            newGame.classList.remove("hide");
-
-            newGame.addEventListener("click", function(){
-                location.reload();
-            });
-            prefab.forEach(element => {
-                if(RGBtoHex(element.style.backgroundColor) !== header.innerHTML){
-                    element.classList.add("hide");
-                }
-            });
-
-            
-        } else {
+        if(backgroundColor !== header.innerHTML){
             element.classList.add("hide");
             guess.innerHTML = "Guess Again, that color was " + backgroundColor;
             guess.style.color = backgroundColor;
+            return; 
         }
+
+        guess.innerHTML = "Correct!";
+        guess.style.color = element.style.backgroundColor;
+        header.style.color = element.style.backgroundColor;
+
+        difText.classList.add("hide");
+        easy.classList.add("hide");
+        medium.classList.add("hide");
+        hard.classList.add("hide");
+        newGame.classList.remove("hide");
+
+        newGame.addEventListener("click", function(){
+            location.reload();
+        });
+        
+        prefab.forEach(element => {
+            if(RGBtoHex(element.style.backgroundColor) !== header.innerHTML){
+                element.classList.add("hide");
+            }
+        });
     });
 });
 
